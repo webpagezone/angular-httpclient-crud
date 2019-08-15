@@ -39,13 +39,13 @@ export class RestApiService {
       catchError(this.handleError)
     );
   }
+
   // HttpClient API post() method => Create employee
-  createEmployee(employee: Employee): Observable<Employee> {
+  createEmployee(employee): Observable<Employee> {
     return this.http
       .post<Employee>(
         this.apiURL + "/employees",
-        //JSON.stringify(employee),
-        employee,
+        JSON.stringify(employee),
         this.httpOptions
       )
       .pipe(
